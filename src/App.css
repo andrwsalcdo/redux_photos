@@ -1,7 +1,37 @@
 * {
     box-sizing: border-box; 
 }
+/* typography */
+html {
+  font-size: 10px;
+  font-family: sans-serif;
+}
+p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+h1 {
+  text-align: center;
+  font-weight: 100;
+  font-size: 13rem;
+  margin: 2rem 0;
+  letter-spacing: -1px;
+  text-shadow: 0px 4px 0 rgba(18, 86, 136, 0.11);
+}
+h1 a {
+    color: blue; 
+    text-decoration: none; 
+}
+h1 a:focus {
+    outline: 0; 
+}
 
+
+body {
+    background: #Fafafa; 
+}
+
+/* photogrid, photo, single */
 .photo_grid {
     display: flex; 
     flex-wrap: wrap; 
@@ -9,16 +39,39 @@
     margin: 0 auto; 
 }
 
- .grid_figure {
-    flex-basis: calc(33.33% - 4rem); 
+ .grid_figure, .single_photo {
+    flex-basis: calc(33.33% - 4rem);  
     margin: 0 2rem 2rem 2rem; 
     padding: 0 2rem 2rem 2rem; 
-    border: 1px solid lightgray;
+    border: 1px solid #EDEEED;
     background: white; 
     box-shadow: 0 0 0 5px rgba(0,0,0,0.03); 
     position: relative;  
-    width: calc(33.33% - 4rem); 
 }
+
+.single_photo {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    background:white;
+} 
+ .single_photo .grid_figure {
+    box-shadow: none; 
+    margin: 0 2rem 0 0;
+    border: 0;
+    padding: 0;
+    flex: 1 0 60%;
+    max-width: 60%;
+} 
+.single_photo  .comments {
+    padding: 1rem; 
+    flex: 1 0 40%;
+    max-width: 40%;
+} 
+.single_photo  .grid_photo {
+    width: 100%;
+    margin: 0;
+} 
 
 .grid_photo {
     width: calc(100% + 4rem);  
@@ -27,8 +80,70 @@
     max-width: none; 
 } 
 
-
 .grid_photo_wrap {
     position: relative;
 }
 
+/* comments */
+
+.comments {
+  border-bottom: 1px solid lightgrey;
+  padding: 0.5rem 0;
+}
+.comment > p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+.comment strong {
+    color: blue;
+    margin-right: 5px;
+}
+.comment p:hover .remove_comment {
+       opacity: 1; 
+}
+.remove_comment {   
+    background: none;
+    border: 0;
+    line-height: 1;
+    opacity: 0;   
+}
+.remove_comment:hover {
+    color: red;
+}
+.comment_form input, textarea {
+    width: 100%;
+    border: 0;
+    font-size: 1.3rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid lightgrey;
+    outline: none;
+    resize: vertical;  
+}
+
+/*  
+  Buttons  
+*/
+
+.control_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+button, .button {
+  border: 2px solid lighten(grey, 90%);
+  background: none;
+  flex-basis: 48%;
+  display: inline-block;
+  line-height: 2;
+  text-decoration: none;
+  padding: 5px;
+  text-align: center;
+  font-size: 15px;
+  color: blue;
+  transition: all 0.2s;
+  box-sizing: padding-box;
+ 
+}
+button:hover, button:focus, .button:hover, .button:focus {
+    border-color: blue; 
+    outline: 0; 
+}

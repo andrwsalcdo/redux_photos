@@ -28,14 +28,14 @@ class Comments extends Component {
 
 	render() {
 		return (
-			<div className="comment">
+			<div className="comments">
                 {/* /* list of comments */}
 				{this.props.postComments.map((comment, i) => {
 					return <Comment comment={comment} i={i} key={i} removeComment={this.props.removeComment} 
                             postId={this.props.match.params.postId} />;
 				})}
                 {/* add comment form */}
-				<form className="comment-form" onSubmit={this.handleSubmit}>
+				<form className="comment_form" onSubmit={this.handleSubmit}>
 					<input type="text" name="author" placeholder="author" value={this.state.author} onChange={this.handleChange} />
 					<input type="text" name="comment" placeholder="comment" value={this.state.comment} onChange={this.handleChange} />
 					<input type="submit" hidden />
@@ -46,11 +46,11 @@ class Comments extends Component {
 }
 
 const Comment = ({ comment, i, removeComment, postId }) => (
-	<div className="comments">
+	<div className="comment">
 		<p>
 			<strong>{comment.user}</strong>
 			{comment.text}
-			<button className="remove-comment" onClick={removeComment.bind(null, postId, i)}>&times;</button>
+			<button className="remove_comment" onClick={removeComment.bind(null, postId, i)}>&times;</button>
 		</p>
 	</div>
 );
