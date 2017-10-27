@@ -26,7 +26,7 @@ const MainPage = ({ ...props }) => (
 		<Main />
 		<Switch>
 			<Route exact path="/" component={_PhotoGrid} {...props} />
-			<Route path="/view/:postId" component={_Single} {...props} />
+			<Route path="/view/:postId" component={_Single}  {...props} />
 		</Switch>
 	</div>
 );

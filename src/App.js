@@ -3,8 +3,8 @@ import MainPage from './pages/MainPage'
 import './App.css';
 
 
-const App = ({ ...props }) => (
-    <MainPage { ...props } />
+const App = () => (
+    <MainPage  />
 )
 
 export default App
