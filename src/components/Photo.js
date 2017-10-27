@@ -13,17 +13,18 @@ const Photo = ({ ...props, post, i }) => (
         <figcaption>
             <p>{post.caption}</p>
             <div className="control_buttons">
-                <button onClick={props.increment.bind(null, i)} 
-                    className="likes">&hearts; {post.likes}</button>
-                <Link className="button" to={`/view/${post.code}`}>
-                    <span className="comment_count">
+                <button onClick={props.increment.bind(null, i)} >
+                    &hearts; {post.likes}
+                </button>
+                <button> 
+                    <Link className="button" to={`/view/${post.code}`}>
                         <span className="speech_bubble"></span>
                         {props.comments[post.code] 
                             ? props.comments[post.code].length 
                             : 0 }
-                    </span>
-                </Link>
-            </div>
+                    </Link>
+                </button>   
+            </div>  
         </figcaption>
     </figure>
 )

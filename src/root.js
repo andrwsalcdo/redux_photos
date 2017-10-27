@@ -29,6 +29,3 @@ const Root = ({ store }) => (
 )
 
 export default Root 
-
-// add propTypes later
-// store . obj. isRequired
