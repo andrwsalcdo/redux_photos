@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Photo from './Photo'
-import Comments from './Comment'
+import Comments from './Comments'
 
 
 class Single extends Component {
