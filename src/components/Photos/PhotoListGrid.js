@@ -22,16 +22,14 @@ class PhotoListGrid extends Component {
 	}
 }
 
-const mapStateToPhotoGridProps = state => {
-	return {
-		posts: state.posts
-	};
-};
+const mapStateToPhotoGridProps = state => ({
+	posts: state.posts
+})
 
 const mapDispatchToPhotoGridProps = dispatch => ({
-	increment: id => {
+	increment(id) {
 		dispatch(increment(id));
 	}
-});
+})
 
 export default connect(mapStateToPhotoGridProps, mapDispatchToPhotoGridProps)(PhotoListGrid)
