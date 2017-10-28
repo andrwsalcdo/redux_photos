@@ -1,18 +1,23 @@
-import { createStore } from 'redux'
-//import the root reducer 
-import rootReducer from '../reducers/index'
-
-
+import { createStore } from "redux"
+import rootReducer from "../reducers/index"
 //import fake data
-import comments from '../data/comments'
-import posts from '../data/posts'
+import comments from "../data/comments"
+import posts from "../data/posts"
+import { saveState, loadState } from "../localStorage"
 
-//default data
+
 const defaultState = {
-    posts, 
-    comments
-}
+	posts,
+	comments
+};
+// load local storage state or default state
+const persistedState = loadState(defaultState); 
 
+const store = createStore(rootReducer, persistedState);
 
-const store = createStore(rootReducer, defaultState)
-export default store 
+// save State changes to local Storage
+store.subscribe(() => {
+	saveState(store.getState());
+});
+
+export default store
