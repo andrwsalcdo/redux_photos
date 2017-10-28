@@ -1,25 +1,43 @@
-import React, { Component } from 'react'
-import Photo from '../Photos/Photo'
-import Comments from './Comments'
-
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../../actions/actions";
+import FotoItem from "../Photos/FotoItem";
+import Comments from "./Comments";
 
 class Single extends Component {
-    render () {
-        const { postId } = this.props.match.params; 
-        const i = this.props.posts.findIndex((post) => 
-            post.code === postId)
-        const post = this.props.posts[i]; 
-        // comments or [] when post has 0 comments
-        const postComments = this.props.comments[postId] || []; 
-
-        return (
-            <div className="single_photo">
-                <Photo i={i} post={post} 
-                    { ...this.props } />  
-                <Comments postComments={postComments} {...this.props} />     
-            </div>
-        )
-    }
+	render() {
+        const { addComment, comments, history, increment, location, match, post, removeComment } = this.props; 
+        const routing = { history, location, match }; 
+        const commentsList = comments || []; 
+		return (
+			<div className="single_photo">
+				<FotoItem post={post} increment={increment} comments={comments} routing={routing} />
+				<Comments comments={commentsList} routing={routing} removeComment={removeComment} addComment={addComment}  />     
+			</div>
+		);
+	}
 }
 
-export default Single
+const onePost = (posts, post_id) => {
+	return posts.findIndex(post => post.code === post_id);
+};
+
+
+const mapStateToProps = (state, ownProps) => {
+
+    const { postId } = ownProps.match.params;
+	const commentsOnPost = state.comments[postId];
+	const i = onePost(state.posts, postId);
+    
+    return {
+		post: state.posts[i], 
+		comments: commentsOnPost
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return bindActionCreators(actions, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Single);

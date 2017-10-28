@@ -31,9 +31,9 @@ class Comments extends Component {
 		return (
 			<div className="comments">
                 {/* /* list of comments */}
-				<CommentList postComments={this.props.postComments} 
+				<CommentList comments={this.props.comments} 
 					removeComment={this.props.removeComment} 
-					postId={this.props.match.params.postId} />
+					postId={this.props.routing.match.params.postId} />
                 {/* add comment form */}
 				<form className="comment_form" onSubmit={this.handleSubmit}>
 					<input type="text" name="author" placeholder="author" value={this.state.author} onChange={this.handleChange} />
