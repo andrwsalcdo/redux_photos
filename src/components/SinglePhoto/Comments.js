@@ -12,7 +12,7 @@ class Comments extends Component {
 	}
 	handleSubmit = e => {
 		e.preventDefault();
-        const { postId } = this.props.match.params;
+        const { postId } = this.props.routing.match.params;
         const author = this.state.author; 
         const comment = this.state.comment; 
         // action
