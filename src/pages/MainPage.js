@@ -1,28 +1,11 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
-// import { bindActionCreators } from "redux";
-// import { connect } from "react-redux";
-// import * as actions from "../actions/actions";
-import Main from "../components/Header/Main";
-import PhotoListGrid from "../components/Photos/PhotoListGrid";
-import Single from "../components/SinglePhoto/Single";
+import React from "react"
+import { Route, Switch } from "react-router-dom"
+import Main from "../components/Header/Main"
+import PhotoListGrid from "../components/Photos/PhotoListGrid"
+import Single from "../components/SinglePhoto/Single"
 
-// function mapStateToProps(state) {
-// 	const commentsOnPost = state.comments[];
 
-// 	return {
-// 		posts: state.posts,
-// 		comments: state.comments
-// 	};
-// }
-
-// function mapDispatchToProps(dispatch) {
-// 	return bindActionCreators(actions, dispatch);
-// }
-
-// const _Single = connect(mapStateToProps, mapDispatchToProps)(Single);
-
-const MainPage = ({ ...props }) => (
+const MainPage = () => (
 	<div>
 		<Main />
 		<Switch>
@@ -32,4 +15,4 @@ const MainPage = ({ ...props }) => (
 	</div>
 );
 
-export default MainPage;
+export default MainPage
