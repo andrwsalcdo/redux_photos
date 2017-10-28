@@ -1,23 +1,27 @@
 import { createStore } from "redux"
 import rootReducer from "../reducers/index"
-//import fake data
 import comments from "../data/comments"
 import posts from "../data/posts"
 import { saveState, loadState } from "../localStorage"
-
+import throttle from 'lodash.throttle'
 
 const defaultState = {
 	posts,
 	comments
 };
-// load local storage state or default state
-const persistedState = loadState(defaultState); 
 
-const store = createStore(rootReducer, persistedState);
+const configureStore = () => {
+	// load local storage state or default state
+	const persistedState = loadState(defaultState);
 
-// save State changes to local Storage
-store.subscribe(() => {
-	saveState(store.getState());
-});
+	const store = createStore(rootReducer, persistedState);
 
-export default store
+	// save State changes to local Storage
+	store.subscribe(throttle(() => {
+		saveState(store.getState());
+    }, 1000));
+    
+    return store; 
+};
+
+export default configureStore;
