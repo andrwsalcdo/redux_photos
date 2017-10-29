@@ -5,9 +5,9 @@ const REMOVE_COMMENT = 'REMOVE_COMMENT'
 
 
 // increment likes 
-export const increment = index => ({
+export const increment = id => ({
     type: INCREMENT_LIKES,
-    index
+    id
 })
 // add comment 
 export const addComment = (postId, author, comment) => ({

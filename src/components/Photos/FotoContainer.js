@@ -1,17 +1,18 @@
 import React, { Component } from "react"
+import { withRouter } from 'react-router'
 import { connect } from "react-redux"
 import FotoItem from "./FotoItem"
 
 class FotoContainer extends Component {
 	increment = () => {
-		this.props.increment(this.props.index);
+		this.props.increment(this.props.post.id);
 	}
 
 	render() {
-		const { routing, comments, post } = this.props;
+		const { comments, post } = this.props;
+		
 		return <FotoItem
 					increment={this.increment}
-					routing={routing}
 					comments={comments}
 					post={post}
 				/>;
@@ -30,4 +31,4 @@ const mapDispatchToFotoProps = dispatch => {
 };
 
 
-export default connect(mapStateToFotoProps, mapDispatchToFotoProps)(FotoContainer);
+export default withRouter(connect(mapStateToFotoProps, mapDispatchToFotoProps)(FotoContainer));

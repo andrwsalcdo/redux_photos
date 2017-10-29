@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { withRouter } from 'react-router'
 
-
-const FotoItem = ({ post, comments, increment, routing }) => (
+const FotoItem = ({ post, comments, increment }) => (
 	<figure className="grid_figure">
 		<div className="grid_photo_wrap">
 			<Link to={`/view/${post.code}`}>
@@ -16,15 +16,12 @@ const FotoItem = ({ post, comments, increment, routing }) => (
 				<button>
 					<Link className="button" to={`/view/${post.code}`}>
 						<span className="speech_bubble" />
-						{ comments
-							? comments.length
-							: 0
-						}
+						{comments ? comments.length : 0}
 					</Link>
 				</button>
 			</div>
-		</figcaption> 
+		</figcaption>
 	</figure>
-)
+);
 
-export default FotoItem
+export default withRouter(FotoItem)

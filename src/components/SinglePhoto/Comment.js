@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router'
 
 const Comment = ({ comment, i, removeComment, postId }) => (	
 	<div className="comment">
@@ -12,4 +13,4 @@ const Comment = ({ comment, i, removeComment, postId }) => (
 	</div>
 );
 
-export default Comment
+export default withRouter(Comment)

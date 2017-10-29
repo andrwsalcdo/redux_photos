@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import CommentList from './CommentList' 
+import { withRouter } from 'react-router'
 
 
 class Comments extends Component {
@@ -12,7 +13,7 @@ class Comments extends Component {
 	}
 	handleSubmit = e => {
 		e.preventDefault();
-        const { postId } = this.props.routing.match.params;
+        const { postId } = this.props.match.params;
         const author = this.state.author; 
         const comment = this.state.comment; 
         // action
@@ -33,7 +34,7 @@ class Comments extends Component {
                 {/* /* list of comments */}
 				<CommentList comments={this.props.comments} 
 					removeComment={this.props.removeComment} 
-					postId={this.props.routing.match.params.postId} />
+					postId={this.props.match.params} />
                 {/* add comment form */}
 				<form className="comment_form" onSubmit={this.handleSubmit}>
 					<input type="text" name="author" placeholder="author" value={this.state.author} onChange={this.handleChange} />
@@ -46,4 +47,4 @@ class Comments extends Component {
 }
 
 
-export default Comments;
+export default withRouter(Comments);
