@@ -21,10 +21,5 @@ const mapStateToPhotoGridProps = state => ({
 	posts: state.posts
 });
 
-const mapDispatchToPhotoGridProps = dispatch => ({
-	increment(id) {
-		dispatch(increment(id));
-	}
-});
 
-export default connect(mapStateToPhotoGridProps, mapDispatchToPhotoGridProps)(PhotoListGrid);
+export default connect(mapStateToPhotoGridProps,{ increment: increment })(PhotoListGrid)

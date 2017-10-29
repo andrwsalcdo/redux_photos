@@ -26,9 +26,4 @@ const mapStateToFotoProps = (state, ownProps) => {
 	};
 };
 
-const mapDispatchToFotoProps = dispatch => {
-	return {};
-};
-
-
-export default withRouter(connect(mapStateToFotoProps, mapDispatchToFotoProps)(FotoContainer));
+export default withRouter(connect(mapStateToFotoProps)(FotoContainer));
