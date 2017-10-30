@@ -1,16 +1,15 @@
 import React from 'react'
-import { withRouter } from 'react-router'
 
-const Comment = ({ comment, i, removeComment, postId }) => (	
+const Comment = ({ comment, removeComment }) => (	
 	<div className="comment">
 		<p>
 			<strong>{comment.user}</strong>
 			{comment.text}
-			<button className="remove_comment" onClick={removeComment.bind(null, postId, i)}>
+			<button className="remove_comment" onClick={removeComment}>
 				&times;
 			</button>
 		</p>
 	</div>
 );
 
-export default withRouter(Comment)
+export default Comment

@@ -19,6 +19,6 @@ export const addComment = (postId, author, comment) => ({
 // remove comment 
 export const removeComment = (postId, i) => ({
     type: REMOVE_COMMENT, 
-    i, 
-    postId
+    postId, 
+    i
 })
