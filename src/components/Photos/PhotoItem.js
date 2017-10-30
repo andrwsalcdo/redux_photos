@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { withRouter } from 'react-router'
 
-const FotoItem = ({ post, comments, increment }) => (
+const PhotoItem = ({ post, comments, increment }) => (
 	<figure className="grid_figure">
 		<div className="grid_photo_wrap">
 			<Link to={`/view/${post.code}`}>
@@ -24,4 +24,4 @@ const FotoItem = ({ post, comments, increment }) => (
 	</figure>
 );
 
-export default withRouter(FotoItem)
+export default withRouter(PhotoItem)

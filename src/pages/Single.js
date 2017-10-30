@@ -1,13 +1,13 @@
 import React from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import * as actions from "../../actions/actions"
-import FotoContainer from "../Photos/FotoContainer"
-import Comments from "./Comments"
+import * as actions from "../actions/actions"
+import PhotoContainer from "../components/Photos/PhotoContainer"
+import Comments from "../components/Comments/Comments"
 
 const Single = ({ post, increment, removeComment, addComment, comments }) => (
 	<div className="single_photo">
-		<FotoContainer post={post} increment={increment} />
+		<PhotoContainer post={post} increment={increment} />
 		<Comments comments={comments || []} removeComment={removeComment} addComment={addComment} />
 	</div>
 )

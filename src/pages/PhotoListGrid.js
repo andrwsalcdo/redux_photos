@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { increment } from "../../actions/actions";
-import FotoContainer from "./FotoContainer";
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import { increment } from "../actions/actions"
+import PhotoContainer from "../components/Photos/PhotoContainer"
 
 class PhotoListGrid extends Component {
 	increment = id => {
@@ -9,7 +9,7 @@ class PhotoListGrid extends Component {
 	};
 
 	renderPhotoContainer = (post, index) => {
-		return <FotoContainer key={post.id} post={{ ...post }} increment={this.increment} />;
+		return <PhotoContainer key={post.id} post={{ ...post }} increment={this.increment} />;
 	};
 
 	render() {

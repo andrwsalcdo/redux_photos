@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Main = () => (
+const Title = () => (
 <div>
 	<h1>
 		 <Link to="/">Redux Photos</Link>
@@ -9,4 +9,4 @@ const Main = () => (
 </div>
 )
 
-export default Main
+export default Title

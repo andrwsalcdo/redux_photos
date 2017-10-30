@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import { withRouter } from 'react-router'
 import { connect } from "react-redux"
-import FotoItem from "./FotoItem"
+import PhotoItem from "./PhotoItem"
 
-class FotoContainer extends Component {
+class PhotoContainer extends Component {
 	increment = () => {
 		this.props.increment(this.props.post.id);
 	}
@@ -11,7 +11,7 @@ class FotoContainer extends Component {
 	render() {
 		const { comments, post } = this.props;
 		
-		return <FotoItem
+		return <PhotoItem
 					increment={this.increment}
 					comments={comments}
 					post={post}
@@ -26,4 +26,4 @@ const mapStateToFotoProps = (state, ownProps) => {
 	};
 };
 
-export default withRouter(connect(mapStateToFotoProps)(FotoContainer));
+export default withRouter(connect(mapStateToFotoProps)(PhotoContainer));

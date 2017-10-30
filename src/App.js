@@ -1,10 +1,10 @@
 import React from 'react'
-import MainPage from './pages/MainPage'
+import Main from './pages/Main'
 import './App.css';
 
 
 const App = () => (
-    <MainPage  />
+    <Main />
 )
 
 export default App

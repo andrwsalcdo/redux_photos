@@ -1,13 +1,13 @@
 import React from "react"
 import { Route, Switch } from "react-router-dom"
-import Main from "../components/Header/Main"
-import PhotoListGrid from "../components/Photos/PhotoListGrid"
-import Single from "../components/SinglePhoto/Single"
+import Title from "../components/Header/Title"
+import PhotoListGrid from "./PhotoListGrid"
+import Single from "./Single"
 
 
-const MainPage = () => (
+const Main = () => (
 	<div>
-		<Main />
+		<Title />
 		<Switch>
 			<Route exact path="/" component={PhotoListGrid} />
 			<Route path="/view/:postId" component={Single}  />
@@ -15,4 +15,4 @@ const MainPage = () => (
 	</div>
 );
 
-export default MainPage
+export default Main
