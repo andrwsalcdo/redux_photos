@@ -10,10 +10,9 @@ class PhotoContainer extends Component {
 
 	render() {
 		const { comments, post } = this.props;
-		
 		return <PhotoItem
 					increment={this.increment}
-					comments={comments}
+					comments={comments} 
 					post={post}
 				/>;
 	}
