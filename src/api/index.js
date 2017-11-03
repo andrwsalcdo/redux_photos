@@ -1,7 +1,7 @@
 import posts from "../data/posts";
 import comments from "../data/comments";
 
-const fakeDatabase = {
+export const fakeDatabase = {
 	posts,
 	comments
 };

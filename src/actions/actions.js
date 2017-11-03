@@ -1,10 +1,9 @@
-import * as api from "../api/index";
-
 // Constant Action Types
 const INCREMENT_LIKES = "INCREMENT_LIKES";
 const ADD_COMMENT = "ADD_COMMENT";
 const REMOVE_COMMENT = "REMOVE_COMMENT";
 const RECEIVE_POSTS = "RECEIVE_POSTS";
+const REQUEST_POSTS = "REQUEST_POSTS";
 
 // increment likes
 export const increment = id => ({
@@ -29,5 +28,6 @@ export const receivePosts = posts => ({
 	type: RECEIVE_POSTS,
 	posts
 });
-// fetch posts from fake backend
-export const fetchPosts = () => api.fetchPosts().then(response => receivePosts(response));
+export const requestPosts = () => ({
+    type: REQUEST_POSTS,
+})

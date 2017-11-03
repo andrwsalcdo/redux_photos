@@ -1,19 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { increment, fetchPosts } from "../actions/actions";
-import PhotoContainer from "../components/Photos/PhotoContainer";
+import { increment } from "../actions/actions";
+import PhotoContainer from "../components/Photos/PhotoContainer"; 
 import { withRouter } from "react-router";
 
 class PhotoListGrid extends Component {
-	componentDidMount() {
-		this.fetchData();
-	}
-
-	fetchData = () => {
-		const { fetchPosts } = this.props; 
-		fetchPosts(); 
-	};
-
 	increment = id => {
 		const { increment } = this.props; 
 		increment(id);
@@ -34,4 +25,4 @@ const mapStateToPhotoGridProps = (state) => {
 	};
 };
 
-export default withRouter(connect(mapStateToPhotoGridProps, { increment: increment, fetchPosts: fetchPosts })(PhotoListGrid));
+export default withRouter(connect(mapStateToPhotoGridProps, { increment: increment })(PhotoListGrid))

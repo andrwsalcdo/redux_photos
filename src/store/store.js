@@ -1,6 +1,7 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import rootReducer from "../reducers/index";
-
+import createSagaMiddleware from 'redux-saga'; 
+import root  from '../sagas'
 
 const addLoggingToDispatch = store => {
 	const rawDispatch = store.dispatch;
@@ -29,9 +30,12 @@ const addPromiseSupportToDispatch = store => {
 	};
 };
 
+const sagaMiddleware = createSagaMiddleware(); 
+
+
 const configureStore = () => {
 
-	const store = createStore(rootReducer);
+	const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 
 	if (process.env.NODE_ENV !== 'production') {
@@ -40,6 +44,7 @@ const configureStore = () => {
 
 	store.dispatch = addPromiseSupportToDispatch(store); 
 
+	sagaMiddleware.run(root); 
 
 	return store;
 };
