@@ -12,6 +12,18 @@ export function* getAllPosts() {
 	yield put(actions.receivePosts(posts));
 }
 
+export function* watchIncrementLikes() {
+	while (true) {
+		const post = yield take(actions.INCREMENT_LIKES);
+		yield fork(getIncrementLikes, post);
+	}
+}
+
+export function* getIncrementLikes(post) {
+	const response = yield call(api.incrementLikesAsync, post.id);
+	yield put(actions.incrementLikesAsync(response));
+}
+
 function* watchAndLog() {
 	while (true) {
 		const action = yield take("*");
@@ -24,7 +36,6 @@ function* watchAndLog() {
 	}
 }
 
-
 export default function* root() {
-	yield all([fork(watchGetAllPosts), fork(watchAndLog)]);
+	yield all([fork(watchGetAllPosts), fork(watchIncrementLikes), fork(watchAndLog)]);
 }
