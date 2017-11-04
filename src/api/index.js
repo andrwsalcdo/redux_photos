@@ -8,8 +8,7 @@ export const fakeDatabase = {
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-export const fetchPosts = () => (
+export const fetchPosts = () =>
 	delay(500).then(() => {
-		return fakeDatabase.posts; 
-	})
-);
+		return fakeDatabase.posts;
+	});

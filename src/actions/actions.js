@@ -1,9 +1,10 @@
 // Constant Action Types
-const INCREMENT_LIKES = "INCREMENT_LIKES";
-const ADD_COMMENT = "ADD_COMMENT";
-const REMOVE_COMMENT = "REMOVE_COMMENT";
-const RECEIVE_POSTS = "RECEIVE_POSTS";
-const REQUEST_POSTS = "REQUEST_POSTS";
+export const INCREMENT_LIKES = "INCREMENT_LIKES";
+export const ADD_COMMENT = "ADD_COMMENT";
+export const REMOVE_COMMENT = "REMOVE_COMMENT";
+export const RECEIVE_POSTS = "RECEIVE_POSTS";
+export const REQUEST_POSTS = "REQUEST_POSTS";
+
 
 // increment likes
 export const increment = id => ({
@@ -23,11 +24,11 @@ export const removeComment = (postId, i) => ({
 	postId,
 	i
 });
+export const requestPosts = () => ({
+	type: REQUEST_POSTS
+});
 // receive posts from fake backend
-export const receivePosts = posts => ({
+export const receivePosts = (posts) => ({
 	type: RECEIVE_POSTS,
 	posts
 });
-export const requestPosts = () => ({
-    type: REQUEST_POSTS,
-})

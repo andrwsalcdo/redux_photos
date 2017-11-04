@@ -14,6 +14,7 @@ const posts = (state = [], action) => {
 	switch (action.type) {
 		case "INCREMENT_LIKES":
 			return increment_likes_on_post(state, action);
+		// case "INCREMENT_LIKES_ASYNC":
 		case "RECEIVE_POSTS":
 			return action.posts;
 		default:
@@ -21,4 +22,4 @@ const posts = (state = [], action) => {
 	}
 };
 
-export default posts;
+export default posts; 
